@@ -67,16 +67,10 @@ local function GetChecker(is_down)
 
 		local binds = Buttons[button]
 		if not binds then return end
-
-		local i, bind = 0
-		local limit = #binds
-		::LOOP:: do
-			i = i + 1
-
-			bind = binds[i]
+		
+		for i = 1, #binds do
+			local bind = binds[i]
 			bind:CheckEnabled(is_down)
-
-			if i ~= limit then goto LOOP end
 		end
 	end
 end
